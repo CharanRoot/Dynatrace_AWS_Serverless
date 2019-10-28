@@ -11,6 +11,9 @@ plugins:
 package:
   individually: true
   excludeDevDependencies: true
+  exclude:
+    - '**/*.md'
+    - '**/test/**'
 
 
 provider:
@@ -20,7 +23,7 @@ provider:
 
 functions:
   hello:
-    handler: index.hello
+    handler: hello/index.hello
     events:
       - http:
           method: GET
