@@ -28,8 +28,15 @@ functions:
       - http:
           method: GET
           path: hello
-
+  hello2:
+    handler: hello/index.hello
+    events:
+      - http:
+          method: GET
+          path: hello
 custom: 
   # import options from a Javascript file
   serverless-oneagent:
     options: '${ssm:/dynatrace/lambda/DT_LAMBDA_OPTIONS~true}'
+    exclude:
+      - hello2
